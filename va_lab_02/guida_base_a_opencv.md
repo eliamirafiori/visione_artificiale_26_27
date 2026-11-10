@@ -118,40 +118,32 @@ canali_uniti = cv2.merge([b, g, r_potenziato])
 ### Passo 5: Filtri e Soglia (Thresholding)
 
 #### Filtro Gaussiano (`cv2.GaussianBlur`)
+
 * Sfoca l'immagine calcolando la media ponderata dei pixel vicini.
 * Serve per **eliminare il "rumore" di fondo** (granulosità, artefatti della fotocamera) prima di applicare algoritmi di riconoscimento.
 
 #### Binarizzazione / Soglia (`cv2.threshold`)
+
 * Prende un'immagine in scala di grigi e imposta una regola binaria:
   $$\text{Pixel Finale} = \begin{cases} 255 & \text{se } \text{Pixel} > 127 \\ 0 & \text{altrimenti} \end{cases}$$
 * Il risultato è un'immagine con soli pixel bianchi e neri netti, ideale per isolare la sagoma di un oggetto dallo sfondo.
 
----
-
 ### Passo 6: Salvataggio su Disco
+
 ```python
 cv2.imwrite("output_grigi.jpg", grigi)
 ```
+
 * Prende la matrice in memoria e la codifica nel formato desiderato in base all'estensione fornita (`.jpg`, `.png`, `.bmp`, ecc.).
 
----
-
 ### Passo 7: Visualizzazione a Schermo
+
 ```python
 cv2.imshow("Finestra", immagine)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
+
 * `cv2.imshow()` apre la finestra grafica.
 * `cv2.waitKey(0)` è **fondamentale**: dice al sistema operativo di fermarsi e attendere che l'utente prema un tasto qualsiasi prima di proseguire. Senza questa istruzione, la finestra si chiuderebbe in una frazione di millisecondo.
 * `cv2.destroyAllWindows()` chiude tutte le finestre create per liberare la memoria.
-
----
-
-## 3. Riepilogo dei 3 Errori Più Comuni per i Principianti
-
-| Errore Tipico | Perché Succede | Come Risolvere |
-| :--- | :--- | :--- |
-| **Colori invertiti (blu/arancio)** | Matplotlib si aspetta RGB, ma OpenCV carica in BGR. | Convertire con `cv2.cvtColor(img, cv2.COLOR_BGR2RGB)`. |
-| **`IndexError` o coordinate scambiate** | In NumPy le dimensioni sono `[riga, colonna]` cioè `[Y, X]`, mentre nelle funzioni grafiche sono `(X, Y)`. | Ricordare: slicing dell'array $= (y, x)$; parametri geometrici $= (x, y)$. |
-| **Colori sballati dopo un'addizione** | Somma standard `+` in `uint8` va in *overflow* ciclico. | Usare sempre `cv2.add()` o `cv2.subtract()`. |
