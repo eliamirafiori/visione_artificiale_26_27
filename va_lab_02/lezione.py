@@ -42,7 +42,7 @@ cv2.waitKey(0)
 
 # 3. Trasformazioni Geometriche di Base
 # Ridimensionamento: attenzione, l'ordine è (larghezza, altezza)
-ridimensionata = cv2.resize(immagine, (200, 150), interpolation=cv2.INTER_LINEAR)
+ridimensionata = cv2.resize(immagine, (500, 150), interpolation=cv2.INTER_LINEAR)
 cv2.imshow("Ridimensionata", ridimensionata)
 cv2.waitKey(0)
 
@@ -59,7 +59,7 @@ cv2.imshow("Ruotata", ruotata)
 cv2.waitKey(0)
 
 # Riflessione speculare (Flip: 1 = orizzontale, 0 = verticale, -1 = entrambi)
-specchiata = cv2.flip(immagine, 1)
+specchiata = cv2.flip(immagine, 0)
 cv2.imshow("Specchiata", specchiata)
 cv2.waitKey(0)
 
@@ -75,7 +75,7 @@ b, g, r = cv2.split(immagine)
 # Aumento del canale Rosso con saturazione a 255 (evita l'overflow)
 r_potenziato = cv2.add(r, 50)
 canali_uniti = cv2.merge([b, g, r_potenziato])
-cv2.imshow("Verde \"Potenziato\"", canali_uniti)
+cv2.imshow("Rosso \"Potenziato\"", canali_uniti)
 cv2.waitKey(0)
 
 # 5. Filtraggio e Soglia (Thresholding)
@@ -91,9 +91,9 @@ cv2.imshow("binaria", soglia)
 cv2.waitKey(0)
 
 # 6. Salvataggio su Disco
-cv2.imwrite("output_grigi.jpg", grigi)
-cv2.imwrite("output_ruotata.jpg", ruotata)
-cv2.imwrite("output_soglia.png", soglia)
+cv2.imwrite("./output_grigi.jpg", grigi)
+cv2.imwrite("./output_ruotata.jpg", ruotata)
+cv2.imwrite("./output_soglia.png", soglia)
 print("Immagini elaborate salvate correttamente su disco.")
 
 # 7. Visualizzazione a Schermo
