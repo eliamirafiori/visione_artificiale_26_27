@@ -67,7 +67,7 @@ cv2.waitKey(0)
 # Regolazione luminosità e contrasto: nuova_img = alpha * img + beta
 # alpha > 1.0 aumenta il contrasto; beta > 0 aumenta la luminosità
 contrasto_luminosita = cv2.convertScaleAbs(immagine, alpha=1.2, beta=40)
-cv2.imshow("Contrasto Luminosità", contrasto_luminosita)
+cv2.imshow("Contrasto e Luminosita", contrasto_luminosita)
 cv2.waitKey(0)
 
 # Separazione e unione dei canali
@@ -80,7 +80,7 @@ cv2.waitKey(0)
 
 # 5. Filtraggio e Soglia (Thresholding)
 # Filtro Gaussiano per ridurre il rumore e sfocare i dettagli
-sfocata = cv2.GaussianBlur(immagine, (7, 7), sigmaX=5)
+sfocata = cv2.GaussianBlur(immagine, (15, 15), sigmaX=5)
 cv2.imshow("Sfocata", sfocata)
 cv2.waitKey(0)
 
