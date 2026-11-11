@@ -42,7 +42,7 @@ cv2.waitKey(0)
 
 # 3. Trasformazioni Geometriche di Base
 # Ridimensionamento: attenzione, l'ordine è (larghezza, altezza)
-ridimensionata = cv2.resize(immagine, (500, 150), interpolation=cv2.INTER_LINEAR)
+ridimensionata = cv2.resize(immagine, (500, 600), interpolation=cv2.INTER_LINEAR)
 cv2.imshow("Ridimensionata", ridimensionata)
 cv2.waitKey(0)
 
@@ -80,7 +80,7 @@ cv2.waitKey(0)
 
 # 5. Filtraggio e Soglia (Thresholding)
 # Filtro Gaussiano per ridurre il rumore e sfocare i dettagli
-sfocata = cv2.GaussianBlur(immagine, (7, 7), sigmaX=1.5)
+sfocata = cv2.GaussianBlur(immagine, (7, 7), sigmaX=5)
 cv2.imshow("Sfocata", sfocata)
 cv2.waitKey(0)
 
