@@ -1,6 +1,6 @@
-# Dispensa: Trasformata di Fourier 2D e Morfologia Matematica
+# Trasformata di Fourier 2D e Morfologia Matematica
 
-Una guida breve e intuitiva per passare dai segnali 1D (come l'audio) all'elaborazione delle immagini 2D, imparando a stimare **traslazioni e rotazioni** con Fourier e a **pulire maschere binarie** con la morfologia matematica.
+Passare dai segnali 1D (come l'audio) all'elaborazione delle immagini 2D, imparando a stimare **traslazioni e rotazioni** con Fourier e a **pulire maschere binarie** con la morfologia matematica.
 
 ---
 
