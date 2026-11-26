@@ -19,6 +19,9 @@ def crea_immagine_test(dim=256):
 
 
 img_orig = crea_immagine_test(256)
+img_orig = cv2.imread("./logo.webp")
+img_orig = cv2.cvtColor(img_orig, cv2.COLOR_BGR2GRAY)
+img_orig = cv2.resize(img_orig, (256, 256), interpolation=cv2.INTER_LINEAR)
 
 # Calcolo della Trasformata di Fourier 2D (equivalente 2D di fft() in 1D)
 F = fft2(img_orig)
